@@ -19,6 +19,7 @@
             >
                 <!-- 需要放在菜单上面的内容，如Logo，写在side-menu标签内部，如下 -->
                 <div class="logo-con">
+					<!-- <span class="title">游戏对比系统</span> -->
                     <img v-show="!collapsed" :src="maxLogo" key="max-logo" />
                     <img v-show="collapsed" :src="minLogo" key="min-logo" />
                 </div>
