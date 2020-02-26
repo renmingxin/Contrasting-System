@@ -1,6 +1,6 @@
 import axios from 'axios'
 import store from '@/store'
-import { Notice } from 'iview'
+import { Notice } from 'view-design'
 // const addErrorLog = errorInfo => {
 //   const { statusText, status, request: { responseURL } } = errorInfo
 //   let info = {

@@ -1,6 +1,6 @@
 export default {
   home: '首页',
   login: '登录',
-  test:'测试',
-  ceshi:'测试一'
+  dataComparison:'数据对比',
+  parallel:'横向对比'
 }
