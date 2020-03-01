@@ -16,7 +16,8 @@ import './index.less'
 
 // 实际打包时应该不引入mock 开发环境需要
 /* eslint-disable */
-if (process.env.NODE_ENV !== 'production') require('@/mock')
+// if (process.env.NODE_ENV !== 'production') require('@/mock')
+
 Vue.use(ViewUI,{
   i18n: (key, value) => i18n.t(key, value)
 });

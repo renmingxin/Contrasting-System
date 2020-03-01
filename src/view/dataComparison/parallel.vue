@@ -298,6 +298,7 @@ export default {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                padding: 20px 0;
                 .blank-game {
                     width: 125px;
                     height: 125px;

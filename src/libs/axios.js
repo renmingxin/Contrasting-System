@@ -1,6 +1,7 @@
 import axios from 'axios'
 import store from '@/store'
 import { Notice } from 'view-design'
+import Qs from 'qs'
 // const addErrorLog = errorInfo => {
 //   const { statusText, status, request: { responseURL } } = errorInfo
 //   let info = {
@@ -13,14 +14,15 @@ import { Notice } from 'view-design'
 // }
 
 axios.defaults.withCredentials = true;//带cookie请求
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+// axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 class HttpRequest {
 	constructor(baseUrl = baseUrl) {
 		this.baseUrl = baseUrl
 		this.queue = {}//请求队列
 	}
-	getInsideConfig() {
+	getInsideConfig(url) {
+		// console.log(url)
 		let gameName = store.state.game.gameName;
 		const config = {
 			baseURL: this.baseUrl,
@@ -40,6 +42,7 @@ class HttpRequest {
 	interceptors(instance, url) {
 		//请求拦截
 		instance.interceptors.request.use(config => {
+			console.log(config)
 			let gameName = store.state.game.gameName;
 			if (gameName !== '') {
 				config.headers['game-code'] = gameName
@@ -52,11 +55,13 @@ class HttpRequest {
 			this.queue[url] = true//请求队列
 			return config
 		}, error => {
+			console.log(error)
 			return Promise.reject(error)
 		})
 
 		//响应拦截
 		instance.interceptors.response.use(res => {
+			console.log(111);
 			this.destroy(url)
 			const { data, status } = res
 			if (status >= 200 && status < 300) {//HTTP状态码为200时

@@ -17,27 +17,41 @@
 
 <script>
 import LoginForm from "_c/login-form";
-import { mapActions } from "vuex";
-import { setToken } from '@/libs/util'
+import { getUserInfo } from '@/api/login.js'
+import { fomatFormData,fomatFormData2,aaa } from '@/libs/util.js'
 export default {
     components: {
         LoginForm
     },
+    mounted(){
+    
+    },
     methods: {
-        ...mapActions(["handleLogin", "getUserInfo"]),
         handleSubmit({ userName, password }) {
-			this.$store.commit('setAvatar','https://file.iviewui.com/dist/a0e88e83800f138b94d2414621bd9704.png');
-			this.$store.commit('setToken','super_admin');
-			setToken('super_admin');
-			this.$router.push({ name: this.$config.homeName });
-			// this.handleLogin({ userName, password }).then(res => {
-            //     this.getUserInfo().then(res => {
-            //         this.$router.push({
-            //             name: this.$config.homeName
-            //         });
-            //     });
-            // });
-        }
+            let params = {
+                username:userName,
+                password:password,
+            }
+            let callback = {
+                onOk:data=>{
+                    console.log(data);
+                },
+                onError:data=>{
+                    console.log(data);
+                }
+                
+            }
+            getUserInfo(fomatFormData(params),callback)
+            // this.$router.push({ name: this.$config.homeName });
+			
+        },
+        // fomatFormData = (msg)=>{
+        //     let params = new URLSearchParams();
+        //     for (let key in msg) {
+        //         params.append(key, msg[key])
+        //     }
+        //     return params;
+        // }
     }
 };
 </script>

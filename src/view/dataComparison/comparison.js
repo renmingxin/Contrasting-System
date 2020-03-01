@@ -11,7 +11,9 @@ function getBigDataTypeList(){
         {
             title:'活跃数据',
             son:[
+                { value: 'activeRealTime',label:'时时在线'},
                 { value: 'activeDuration',label:'时长分析'},
+                { value: 'activeLogin',label:'登录次数'},
             ]
         },
         {
@@ -19,15 +21,26 @@ function getBigDataTypeList(){
             son:[
                 { value: 'storageData',label:'留存总览'},
                 { value: 'storageLess',label:'留存衰减'},
+                { value: 'gameSteps',label:'游戏步骤数据'},
+                { value: 'transcript',label:'副本通过率'},
+                { value: 'transcriptDetails',label:'副本通过详情'},
+                { value: 'storageLogin',label:'登录进度统计'},
             ]
         },
         {
             title:'付费数据',
             son:[
-                { value: 'rechargeUser',label:'充值用户数据'},
+                { value: 'payBasics',label:'付费总览'},
+                { value: 'rechargeDirect',label:'直购/非直购'},
+                { value: 'rechargeMonth',label:'月付费数据'},
+                { value: 'rechargeFirst',label:'首充数据'},
                 { value: 'consumeUser',label:'消费用户数据'},
-                { value: 'consumeDetails',label:'消费详情'},
-                { value: 'payJewel',label:'钻石存量'},
+            ]
+        },
+        {
+            title:'滚服数据',
+            son:[
+                { value: 'rollBasics',label:'滚服总览'},
             ]
         },
     ];

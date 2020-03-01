@@ -3,6 +3,7 @@ import Cookies from 'js-cookie'
 import config from '@/config'
 import { forEach, hasOneOf, objEqual } from '@/libs/tools'
 const { title, cookieExpires, useI18n } = config
+import Qs from 'qs'
 
 export const TOKEN_KEY = 'token'
 
@@ -31,8 +32,6 @@ const showThisMenuEle = (item, access) => {
  * @returns {Array}
  */
 export const getMenuByRouter = (list, access) => {
-  console.log(list)
-  console.log(access)
   let res = []
   forEach(list, item => {
     if (!item.meta || (item.meta && !item.meta.hideInMenu)) {
@@ -48,7 +47,6 @@ export const getMenuByRouter = (list, access) => {
       if (showThisMenuEle(item, access)) res.push(obj)
     }
   })
-  console.log(res);
   return res
 }
 
@@ -171,6 +169,7 @@ const hasAccess = (access, route) => {
  * @description 用户是否可跳转到该页
  */
 export const canTurnTo = (name, access, routes) => {
+  console.log(access)
   const routePermissionJudge = (list) => {
     return list.some(item => {
       if (item.children && item.children.length) {
@@ -399,4 +398,25 @@ export const setTitle = (routeItem, vm) => {
   const pageTitle = showTitle(handledRoute, vm)
   const resTitle = pageTitle ? `${title} - ${pageTitle}` : title
   window.document.title = resTitle
+}
+
+//POST表单转换
+export const fomatFormData = (msg)=>{
+    let params = new FormData();
+    for (let key in msg) {
+        params.append(key, msg[key])
+    }
+    return params;
+}
+
+//POST表单转换
+export const fomatFormData2 = (msg)=>{
+  let params = new URLSearchParams();
+  for (let key in msg) {
+      params.append(key, msg[key])
+  }
+  return params;
+}
+export const aaa = (msg)=>{
+  return Qs.stringify({msg});
 }
