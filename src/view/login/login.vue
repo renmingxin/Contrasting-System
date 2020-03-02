@@ -16,44 +16,28 @@
 </template>
 
 <script>
-import LoginForm from "_c/login-form";
-import { getUserInfo } from '@/api/login.js'
-import { fomatFormData,fomatFormData2,aaa } from '@/libs/util.js'
+import LoginForm from '_c/login-form'
+import { getUserInfo } from '@/api/ready.js'
+import { fomatFormData } from '@/libs/util.js'
 export default {
-    components: {
-        LoginForm
-    },
-    mounted(){
-    
-    },
-    methods: {
-        handleSubmit({ userName, password }) {
-            let params = {
-                username:userName,
-                password:password,
-            }
-            let callback = {
-                onOk:data=>{
-                    console.log(data);
-                },
-                onError:data=>{
-                    console.log(data);
-                }
-                
-            }
-            getUserInfo(fomatFormData(params),callback)
-            // this.$router.push({ name: this.$config.homeName });
-			
-        },
-        // fomatFormData = (msg)=>{
-        //     let params = new URLSearchParams();
-        //     for (let key in msg) {
-        //         params.append(key, msg[key])
-        //     }
-        //     return params;
-        // }
+  components: {
+    LoginForm
+  },
+  mounted () {
+
+  },
+  methods: {
+    handleSubmit ({ userName, password }) {
+      let params = {
+        username: userName,
+        password: password
+      }
+      getUserInfo(fomatFormData(params), data => {
+        this.$router.push({ name: 'defaultPage' })
+      })
     }
-};
+  }
+}
 </script>
 
 <style>

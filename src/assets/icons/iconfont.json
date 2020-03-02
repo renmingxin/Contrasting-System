@@ -1,0 +1,16 @@
+{
+  "id": "1666528",
+  "name": "游戏对比系统",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "youkia游戏对比系统",
+  "glyphs": [
+    {
+      "icon_id": "5324509",
+      "name": "对比",
+      "font_class": "duibi",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    }
+  ]
+}

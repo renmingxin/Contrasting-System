@@ -1,6 +1,6 @@
 import Main from '@/components/main'
 import parentView from '@/components/parent-view'
-
+console.log(2222)
 /**
  * iview-admin中meta除了原生参数外可配置的参数:
  * meta: {
@@ -18,53 +18,62 @@ import parentView from '@/components/parent-view'
  */
 
 export default [
-{
-	path: '/',
-	name: 'login',
-	meta: {
-		title: 'Login - 登录',
-		hideInMenu: true
-	},
-	component: () => import('@/view/login/login.vue')
-},
-{
-	path: '/home',
-	name: '_home',
-	redirect: '/login',
-	component: Main,
-	meta: {
-		hideInMenu: true,
-		notCache: true
-	},
-	children: [{
-		path: '/home',
-		name: 'home',
-		meta: {
-			hideInMenu: true,
-			title: '首页',
-			notCache: true,
-			icon: 'md-home'
-		},
-		component: () => import('@/view/single-page/home')
-	}]
-},
-{
-	path: '/dataComparison', // 必须项
-	name: 'dataComparison', // 必须项，后面缓存页面需要用到，且这个name是唯一的
-	meta: {
-		icon: 'md-cloud-upload',
-		title: '自定义对比',
-		showAlways: true
-	},
-	component: Main, // 一级目录必须使用Main组件作为component
-	children: [{
-		path: 'parallel',
-		name: 'parallel',
-		meta: {
-			icon: 'ios-document',
-			title: '横向对比'
-		},
-		component: () => import('@/view/dataComparison/parallel.vue')
-	}]
-},
+  {
+    path: '/',
+    name: 'login',
+    meta: {
+      title: 'Login - 登录',
+      hideInMenu: true
+    },
+    component: () => import('@/view/login/login.vue')
+  },
+  {
+    path: '/defaultPage',
+    name: 'defaultPage',
+    meta: {
+      title: '默认页',
+      hideInMenu: true
+    },
+    component: () => import('@/view/defaultPage/defaultPage.vue')
+  },
+  {
+    path: '/home',
+    name: '_home',
+    redirect: '/login',
+    component: Main,
+    meta: {
+      hideInMenu: true,
+      notCache: true
+    },
+    children: [{
+      path: '/home',
+      name: 'home',
+      meta: {
+        hideInMenu: true,
+        title: '首页',
+        notCache: true,
+        icon: 'md-home'
+      },
+      component: () => import('@/view/single-page/home')
+    }]
+  },
+  {
+    path: '/dataComparison', // 必须项
+    name: 'dataComparison', // 必须项，后面缓存页面需要用到，且这个name是唯一的
+    meta: {
+      icon: 'md-cloud-upload',
+      title: '自定义对比',
+      showAlways: true
+    },
+    component: Main, // 一级目录必须使用Main组件作为component
+    children: [{
+      path: '/parallel',
+      name: 'parallel',
+      meta: {
+        icon: 'ios-document',
+        title: '横向对比'
+      },
+      component: () => import('@/view/dataComparison/parallel.vue')
+    }]
+  }
 ]
