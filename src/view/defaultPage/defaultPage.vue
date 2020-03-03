@@ -4,7 +4,7 @@
 
 <script>
 import { getMenuList } from '@/api/ready.js'
-export default{
+export default {
   data () {
     return {
 
@@ -13,7 +13,6 @@ export default{
   mounted () {
     console.log('默认页面')
     this.getMenuList()
-    this.$router.push({ name: this.$config.homeName })
   },
   methods: {
     getMenuList () {
@@ -25,6 +24,7 @@ export default{
         })
         this.$store.commit('setMenuList', arr)
         sessionStorage.setItem('menuList', JSON.stringify(arr))
+        this.$router.push({ name: this.$config.homeName })
       })
     },
     formatMenuList (data) {
@@ -44,9 +44,9 @@ export default{
 </script>
 
 <style scoped>
-    .pc-container{
-        width: 100%;
-        height: 100%;
-        background-image: url('../../assets/images/login-bg.jpg');
-    }
+.pc-container {
+    width: 100%;
+    height: 100%;
+    background-image: url("../../assets/images/login-bg.jpg");
+}
 </style>

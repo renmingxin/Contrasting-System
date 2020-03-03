@@ -33,6 +33,9 @@ export default {
         password: password
       }
       getUserInfo(fomatFormData(params), data => {
+        this.$Notice.success({
+          title: data.msg
+        })
         this.$router.push({ name: 'defaultPage' })
       })
     }

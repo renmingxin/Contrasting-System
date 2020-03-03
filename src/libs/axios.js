@@ -13,13 +13,13 @@ import Qs from 'qs'
 //   if (!responseURL.includes('save_error_logger')) store.dispatch('addErrorLog', info)
 // }
 
-axios.defaults.withCredentials = true// 带cookie请求
+axios.defaults.withCredentials = true // 带cookie请求
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 class HttpRequest {
   constructor (baseUrl = baseUrl) {
     this.baseUrl = baseUrl
-    this.queue = {}// 请求队列
+    this.queue = {} // 请求队列
   }
   getInsideConfig (url) {
     // console.log(url)
@@ -50,7 +50,7 @@ class HttpRequest {
       if (!Object.keys(this.queue).length) {
         // Spin.show();//加载动画 不建议开启，因为界面不友好
       }
-      this.queue[url] = true// 请求队列
+      this.queue[url] = true // 请求队列
       return config
     }, error => {
       return Promise.reject(error)
@@ -73,11 +73,6 @@ class HttpRequest {
               // window.location.href = '/index.html'
             }, 1000)
           }
-        } else {
-          Notice.success({
-            title: data.msg
-            // desc: data.msg
-          })
         }
         return data
       } else {
