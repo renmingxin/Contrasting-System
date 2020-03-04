@@ -62,7 +62,8 @@
                             :bottom="80"
                             :right="50"
                             container=".content-wrapper"
-                        ></ABackTop>
+                        >
+                        </ABackTop>
                     </Content>
                 </Layout>
             </Content>
@@ -151,7 +152,9 @@ export default {
             'setHomeRoute',
             'closeTag'
         ]),
+        
         turnToPage(route) {
+            console.log(route)
             let { name, params, query } = {}
             if (typeof route === 'string') name = route
             else {
@@ -212,6 +215,7 @@ export default {
         this.addTag({
             route: { name, params, query, meta }
         })
+        //添加面包屑标题 -> 首页/自定义数据对比/横向对比
         this.setBreadCrumb(this.$route)
         // 设置初始语言
         this.setLocal(this.$i18n.locale)

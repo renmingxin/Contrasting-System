@@ -41,8 +41,8 @@
                 <transition-group name="taglist-moving-animation">
                     <Tag
                         type="dot"
-                        v-for="(item, index) in list"
                         ref="tagsPageOpened"
+                        v-for="(item, index) in list"
                         :key="`tag-nav-${index}`"
                         :name="item.name"
                         :data-route-item="item"
@@ -186,6 +186,7 @@ export default {
                 })
             })
         },
+        //右键鼠标
         contextMenu(item, e) {
             if (item.name === this.$config.homeName) {
                 return

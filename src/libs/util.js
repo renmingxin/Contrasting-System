@@ -55,11 +55,8 @@ export const getMenuByRouter = (list, access) => {
  * @returns {Array}
  */
 export const getBreadCrumbList = (route, homeRoute) => {
-    console.log(homeRoute)
     let homeItem = { ...homeRoute, icon: homeRoute.meta.icon }
     let routeMetched = route.matched
-    console.log(homeItem)
-    console.log(routeMetched);
     if (routeMetched.some(item => item.name === homeRoute.name)) return [homeItem]
     let res = routeMetched.filter(item => {
         return item.meta === undefined || !item.meta.hideInBread
@@ -79,6 +76,7 @@ export const getBreadCrumbList = (route, homeRoute) => {
     res = res.filter(item => {
         return !item.meta.hideInMenu
     })
+    console.log([{ ...homeItem, to: homeRoute.path }, ...res])
     return [{ ...homeItem, to: homeRoute.path }, ...res]
 }
 
