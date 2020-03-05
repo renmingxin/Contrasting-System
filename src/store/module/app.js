@@ -18,12 +18,12 @@ import config from '@/config'
 const { homeName } = config
 
 const closePage = (state, route) => {
-    const nextRoute = getNextRoute(state.tagNavList, route)
+    const nextRoute = getNextRoute(state.tagNavList, route);
     state.tagNavList = state.tagNavList.filter(item => {
         return !routeEqual(item, route)
-    })
+    });
     router.push(nextRoute)
-}
+};
 
 export default {
     state: {
@@ -95,15 +95,15 @@ export default {
     },
     actions: {
         addErrorLog({ commit, rootState }, info) {
-            if (!window.location.href.includes('error_logger_page')) commit('setHasReadErrorLoggerStatus', false)
-            const { user: { token, userId, userName } } = rootState
+            if (!window.location.href.includes('error_logger_page')) commit('setHasReadErrorLoggerStatus', false);
+            const { user: { token, userId, userName } } = rootState;
             let data = {
                 ...info,
                 time: Date.parse(new Date()),
                 token,
                 userId,
                 userName
-            }
+            };
             saveErrorLogger(info).then(() => {
                 commit('addError', data)
             })

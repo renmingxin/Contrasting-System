@@ -29,7 +29,7 @@ class HttpRequest {
       headers: {
         // 'game-code' :gameName
       }
-    }
+    };
     return config
   }
   destroy (url) {
