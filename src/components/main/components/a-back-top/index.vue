@@ -55,12 +55,6 @@ export default {
     },
     computed: {
         classes() {
-            console.log([
-                `${prefixCls}`,
-                {
-                    [`${prefixCls}-show`]: this.backTop
-                }
-            ]);
             return [
                 `${prefixCls}`,
                 {

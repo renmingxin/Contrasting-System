@@ -1,5 +1,5 @@
 <style lang="less">
-@import "./login.less";
+    @import "./login.less";
 </style>
 
 <template>
@@ -16,31 +16,32 @@
 </template>
 
 <script>
-import LoginForm from '_c/login-form'
-import { getUserInfo } from '@/api/ready.js'
-import { fomatFormData } from '@/libs/util.js'
-export default {
-  components: {
-    LoginForm
-  },
-  mounted () {
+    import LoginForm from '_c/login-form'
+    import {getUserInfo} from '@/api/ready.js'
+    import {fomatFormData} from '@/libs/util.js'
 
-  },
-  methods: {
-    handleSubmit ({ userName, password }) {
-      let params = {
-        username: userName,
-        password: password
-      }
-      getUserInfo(fomatFormData(params), data => {
-        this.$Notice.success({
-          title: data.msg
-        })
-        this.$router.push({ name: 'defaultPage' })
-      })
+    export default {
+        components: {
+            LoginForm
+        },
+        mounted(){
+
+        },
+        methods: {
+            handleSubmit({userName, password}){
+                let params = {
+                    username: userName,
+                    password: password
+                }
+                getUserInfo(fomatFormData(params), data => {
+                    this.$Notice.success({
+                        title: data.msg
+                    })
+                    this.$router.push({name: 'defaultPage'})
+                })
+            }
+        }
     }
-  }
-}
 </script>
 
 <style>

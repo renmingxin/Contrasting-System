@@ -84,5 +84,35 @@ export default [{
                 component: () => import('@/view/dataComparison/vertical.vue')
             },
         ]
-    }
+    },
+    {
+        path: '/systemSettings', // 必须项
+        name: 'systemSettings', // 必须项，后面缓存页面需要用到，且这个name是唯一的
+        meta: {
+            icon: 'md-settings',
+            title: '系统配置',
+            showAlways: true
+        },
+        component: Main, // 一级目录必须使用Main组件作为component
+        children: [
+            {
+                path: '/gameSettings',
+                name: 'gameSettings',
+                meta: {
+                    icon: 'ios-phone-landscape',
+                    title: '游戏服务器配置'
+                },
+                component: () => import('@/view/system-settings/gameSettings.vue')
+            },
+            {
+                path: '/channelSettings',
+                name: 'channelSettings',
+                meta: {
+                    icon: 'ios-phone-landscape',
+                    title: '渠道配置'
+                },
+                component: () => import('@/view/system-settings/channelSettings.vue')
+            },
+        ]
+    },
 ]
