@@ -7,5 +7,6 @@ export default {
     vertical:'纵向对比',
     systemSettings:'系统配置',
     gameSettings:'游戏服务器配置',
-    channelSettings:'渠道配置'
+    channelSettings:'渠道配置',
+    gameCategoryDeploy:'游戏类别配置'
 }

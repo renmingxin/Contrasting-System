@@ -162,6 +162,36 @@ const deleteDitch_axios = (params,callback) => {
         callback(res)
     })
 }
+//游戏类别-> 添加节点
+const addGameCategory_axios = (params,callback) => {
+    axios.request({
+        url: '/config/game/category/add',
+        method: 'POST',
+        data:params
+    }).then(res => {
+        callback(res)
+    })
+}
+//游戏类别-> 添加节点
+const updateGameCategory_axios = (params,callback) => {
+    axios.request({
+        url: '/config/game/category/update',
+        method: 'POST',
+        data:params
+    }).then(res => {
+        callback(res)
+    })
+}
+//游戏类别-> 删除节点
+const deleteGameCategory_axios = (id, callback) => {
+    axios.request({
+        url: '/config/game/category/'+ id,
+        method: 'DELETE',
+        data: {}
+    }).then(res => {
+        callback(res)
+    })
+}
 export {
     getGameData_axios,
     getGameCategory_axios,
@@ -178,5 +208,8 @@ export {
     getDitchList_axios,
     sureaddDitch_axios,
     sureUpdateDitch_axios,
-    deleteDitch_axios
+    deleteDitch_axios,
+    addGameCategory_axios,
+    updateGameCategory_axios,
+    deleteGameCategory_axios
 }

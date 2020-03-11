@@ -60,7 +60,6 @@
                     page:1,
                     size:15
                 },
-
             }
         },
         mixins:[bilist],

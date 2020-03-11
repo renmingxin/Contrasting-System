@@ -113,6 +113,16 @@ export default [{
                 },
                 component: () => import('@/view/system-settings/channelSettings.vue')
             },
+            {
+                path: '/gameCategoryDeploy',
+                name: 'gameCategoryDeploy',
+                meta: {
+                    icon: 'ios-phone-landscape',
+                    title: '游戏类别配置'
+                },
+                component: () => import('@/view/system-settings/gameCategoryDeploy.vue')
+            },
+
         ]
     },
 ]

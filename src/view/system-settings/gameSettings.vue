@@ -139,6 +139,7 @@
 <script>
     import { getGameServerList_axios, getPlatformList_axios,deleteServer_axios,deletePlatform_axios } from '@/api/systemSettings'
     import bilist from './bilist.js'
+
     export default{
         data() {
             return {
