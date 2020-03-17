@@ -380,7 +380,7 @@
                 //得到平台列表
                 this.getClickPlatformList(code);
             },
-            getClickServerList(code){
+            getClickServeconrList(code){
                 let msg = this.pageServerParams;
                 let params = {
                     gameCode:code,

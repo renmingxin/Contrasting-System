@@ -39,7 +39,7 @@
                         v-if="$config.plugin['error-store'] && $config.plugin['error-store'].showInHeader"
                         :has-read="hasReadErrorPage"
                         :count="errorCount"
-                    ></error-store>
+                ></error-store>
                     <fullscreen v-model="isFullscreen" style="margin-right: 10px;" />
                 </header-bar>
             </Header>
